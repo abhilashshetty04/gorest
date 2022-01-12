@@ -17,7 +17,7 @@ const (
 )
 
 type lib struct {
-	dbHost, dbPass, dbName string
+	dbHost, dbPass, dbName, dbUser string
 }
 
 type Book struct {
@@ -35,6 +35,11 @@ func main() {
 		dbPass = "VMware@123"
 	}
 
+	dbUser := os.Getenv("DB_USER")
+	if dbUser == "" {
+		dbUser = "dbuser"
+	}
+
 	apiPath := os.Getenv("API_PATH")
 	if apiPath == "" {
 		apiPath = apipath
@@ -43,7 +48,7 @@ func main() {
 	if dbName == "" {
 		dbName = "library"
 	}
-	l := lib{dbHost, dbPass, dbName}
+	l := lib{dbHost, dbPass, dbName, dbUser}
 	fmt.Println(l)
 	r := mux.NewRouter()
 	r.HandleFunc(apiPath, l.getBooks).Methods(http.MethodGet)
@@ -108,7 +113,7 @@ func (l lib) getBooks(w http.ResponseWriter, r *http.Request) {
 }
 
 func (l lib) openConnection() *sql.DB {
-	db, err := sql.Open("mysql", fmt.Sprintf("%s:%s@(%s)/%s", "dbuser", l.dbPass, l.dbHost, l.dbName))
+	db, err := sql.Open("mysql", fmt.Sprintf("%s:%s@(%s)/%s", l.dbUser, l.dbPass, l.dbHost, l.dbName))
 	if err != nil {
 		log.Fatalf("Error while opening connection %s\n", err.Error())
 	}
