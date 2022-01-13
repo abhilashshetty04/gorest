@@ -9,6 +9,6 @@ entries:
     name: library
     type: application
     urls:
-    - library-0.1.0.tgz
+    - https://github.com/abhilashshetty04/library/releases/download/library-0.1.0.tgz/library-0.1.0.tgz
     version: 0.1.0
 generated: "2022-01-13T15:46:52.886793894+05:30"
