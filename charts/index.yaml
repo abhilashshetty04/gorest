@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  library:
+  - apiVersion: v2
+    appVersion: 0.1.1
+    created: "2022-01-13T15:46:52.88739632+05:30"
+    description: A Helm chart to deploy abhilashshetty04/library rest application
+    digest: 868deb651d6aceb466c04cbffb967950050c372c833571b3f8f8e2b0702bbe9f
+    name: library
+    type: application
+    urls:
+    - library-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-01-13T15:46:52.886793894+05:30"
