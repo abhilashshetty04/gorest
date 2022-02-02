@@ -1,4 +1,4 @@
-module github.com/abhilashshetty04/library
+module github.com/abhilashshetty04/gorest
 
 go 1.17
 
