@@ -4,6 +4,9 @@ metadata:
   creationTimestamp: null
   labels:
     app: restapi
+    ingReq: needed
+    #path: "/api/v1/books"
+    port: "8080"
   name: restapi
   namespace: restapi
 spec:
